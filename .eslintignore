@@ -1,0 +1,4 @@
+node_modules/**
+slide-generator/**
+dist/**
+src/utils/plugins/**

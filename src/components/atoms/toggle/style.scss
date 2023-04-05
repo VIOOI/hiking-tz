@@ -1,0 +1,41 @@
+
+.toggle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 16px;
+	align-self: start;
+	font-family: "Noto Sans";
+	color: #666666;
+	cursor: pointer;
+	margin-bottom: 35px;
+	input {
+		display: none;
+		pointer-event: none;
+		&:checked + .view {
+			justify-content: start;
+			background: #7A5CFA;
+			&::before {
+				background: #fff;
+			}
+		}
+	}
+	.view {
+		width: 49px;
+		height: 24px;
+		border: 1px solid #CCCCCC;
+		border-radius: 99999px;
+		display: flex;
+		padding: 0px 3px;
+		align-items: center;
+		justify-content: end;
+		&::before {
+			content: "";
+			width: 18px;
+			height: 18px;
+			background: #CCCCCC;
+			border: 1px solid #CCCCCC;
+			border-radius: 9999px;
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"jsx": "react",
+		"types": ["vite/client"],
+		"noEmit": true,
+		"isolatedModules": true,
+		"paths": {
+			"@/*": [ "./src" ],
+			"@root/*": [ "./" ],
+			"@public/*": [ "./src/public/*" ],
+			"@atoms/*": [ "./src/components/atoms/*" ],
+			"@molecules/*": [ "./src/components/molecules/*" ],
+			"@organisms/*": [ "./src/components/organisms/*" ],
+			"@templates/*": [ "./src/components/templates/*" ],
+			"@pages/*": [ "./src/components/pages/*" ],
+			"@store/*": [ "./src/stores/*" ],
+			"@app/*": [ "./src/app/*" ],
+			"@tests/*": [ "./src/tests/*" ],
+			"@utils/*": [ "./src/utils/*" ],
+			"@types/*": [ "./src/types/*" ],
+			"@plugins/*": [ "./src/plugins/*" ]
+		}
+	}
+}

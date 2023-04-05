@@ -1,0 +1,20 @@
+
+.form button {
+	width: 172px;
+	padding: 16px;
+	border: 0;
+	border-radius: 8px;
+	font-family: "Noto Sans";
+	font-size: 16px;
+
+	&.clear {
+		border: 1px solid #7A5CFA;
+		color: #7A5CFA;
+		background: #FFF;
+	}
+
+	&.active {
+		background: #7A5CFA;
+		color: #FFF;
+	}
+}
