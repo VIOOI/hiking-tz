@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 
 import { Form } from "@molecules/form";
 import { useStore } from "effector-react";
@@ -13,12 +13,16 @@ export const FormPage: FC = () => {
 	const [ radio, setRadio ] = useState("radio-1");
 	const [ dropdown, setDropdown ] = useState("Dropdown-1");
 
-	useEffect(() => {
-		console.log(radio);
-	}, [ radio ]);
-
 	return ( 
-		<Form>
+		<Form 
+			username={username} 
+			password={password} 
+			inputText={inputText} 
+			isRemember={isRemember}
+			isOn={isOn}
+			radio={radio}
+			dropdown={dropdown}
+		>
 			<>
 				<Form.Input 
 					title="Username" 
@@ -57,12 +61,23 @@ export const FormPage: FC = () => {
 					Radio selection 3
 				</Form.Radio>
 				
+				<Form.DropDown title="Dropdown Title"> 
+					<Form.DropDown.Option setDropDown={setDropdown}>
+						Dropdown option
+					</Form.DropDown.Option>
+					<Form.DropDown.Option setDropDown={setDropdown}>
+						Dropdown option 1
+					</Form.DropDown.Option>
+					<Form.DropDown.Option setDropDown={setDropdown}>
+						Dropdown option 2
+					</Form.DropDown.Option>
+				</Form.DropDown>
 
 				<div className="flex w-full justify-between">
 					<Form.Button type="button" style="clear"> 
 						Cancel
 					</Form.Button>
-					<Form.Button type="button" style="active"> 
+					<Form.Button type="submit" style="active"> 
 						Next
 					</Form.Button>
 				</div>

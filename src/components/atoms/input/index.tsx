@@ -1,7 +1,7 @@
 import { Context } from "@store/context";
 import { Event } from "effector";
 import { useUnit } from "effector-react";
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useState } from "react";
 
 import { useIsValidity } from "../../../hooks/useIsValidity";
 import Warn from "../../../public/warn.svg";
@@ -19,21 +19,25 @@ type Props = {
 export const Input: FC<Props> =
 	({ title, value, setter, regexp = /^[a-zA-Z0-9_]*$/, assistiveText = "" }) => {
 	
-		const isValidity = useIsValidity(value, regexp);
+		const [ localValue, setLocalValue ] = useState("");
+		const isValidity = useIsValidity(localValue, regexp);
 
 		return ( 
-			<div className={"input" + `${isValidity? " not-validity" : ""}`}>
+			<div className={"input" + `${!isValidity? " not-validity" : ""}`}>
 				<label>{ title }</label>
 				<div className="input-wrapper">
 					<input 
 						type="text"
 						placeholder={`Enter ${title.toLowerCase()}`}
 						onChange={event => {
-							setter(event.target.value);
+							// console.log(isValidity);
+							setLocalValue(event.target.value);
+							if (isValidity)
+								setter(localValue);
 						}}
 					/>
 					{
-						isValidity 
+						!isValidity 
 							? <img src={Warn} alt="warning" width="20px" />
 							: null
 					}
